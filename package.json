@@ -1,0 +1,20 @@
+{
+  "name": "lit-example",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lit": "^3.0.2",
+    "modern-normalize": "^2.0.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5"
+  }
+}
