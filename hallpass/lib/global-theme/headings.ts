@@ -92,9 +92,10 @@ const headingThemeSet: HeadingThemeSet = {
 
 export const buildHeading = (heading: HeadingName): CSSResult => {
   const theme = headingThemeSet[heading];
-  return unsafeCSS(`
+  return unsafeCSS(`${heading} {
     ${buildTypographyTheme(theme.typography)}
     ${buildMargin(theme.margin)}
     color: ${buildCssColor(theme.color.name, theme.color.intensity, theme.color.opacity)};
-  `);
+    }`);
+
 }

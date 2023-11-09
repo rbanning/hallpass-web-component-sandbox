@@ -11,3 +11,5 @@ export const componentResetStyles = css`
     margin: 0; padding: 0; font-size: 1rem; font-weight: normal;
   }
 `;
+
+console.log("DEBUG: ", {componentResetStyles});
