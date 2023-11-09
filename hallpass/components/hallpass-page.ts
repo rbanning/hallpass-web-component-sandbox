@@ -2,6 +2,7 @@ import { pageRepo } from './../models/pages';
 import { html, css, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { componentResetStyles } from '../lib/component-reset-styles';
+import { globalTheme } from '../lib/global-theme';
 
 @customElement('hallpass-page')
 export class hallpassPage extends LitElement {
@@ -15,13 +16,9 @@ export class hallpassPage extends LitElement {
           display: block;
           margin: 0 1rem;
         }
-        h1 {
-          font-size: 2rem;
-          color: rgba(0,100,0, 0.5);
-          margin-bottom: 1rem;
-        }
+        ${globalTheme.buildHeading('h1')}
         p {
-          color: #94a3b8;
+          color: ${globalTheme.buildCssColor('accent', 500)};
         }
       `
     ]

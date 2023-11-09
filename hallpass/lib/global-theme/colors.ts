@@ -22,7 +22,6 @@ const colors: ColorTheme = {
   neutral: buildColorSet(slate)
 };
 
-
 export const getColorHex = (name: ColorThemeName, intensity: ColorIntensity, opacity?: number): string => {
   let ret = colors[name][intensity];
   if (typeof (opacity) === 'number') {
@@ -32,11 +31,40 @@ export const getColorHex = (name: ColorThemeName, intensity: ColorIntensity, opa
   }
   return ret;
 }
+export type CssColorParams = {
+  name: ColorThemeName, intensity: ColorIntensity, opacity?: number
+}
+export const cssColorParamsToColorHex = (params: CssColorParams): string => {
+  const {name, intensity, opacity} = params;
+  return getColorHex(name, intensity, opacity);
+}
+
 
 export const buildCssColor = (name: ColorThemeName, intensity: ColorIntensity, opacity?: number): CSSResult => {
   return unsafeCSS(getColorHex(name, intensity, opacity));
 }
 
+
+export type CssColorTheme = {
+  text: CssColorParams,
+  bg: CssColorParams
+}
+const defaultCssColorTheme: CssColorTheme = {
+  text: { name: 'neutral', intensity: 400, opacity: 1 },
+  bg: { name: 'neutral', intensity: 50, opacity: 0.1 },
+}
+
+export const buildCssColorTheme = (config?: Partial<CssColorTheme>) => {
+  const theme: CssColorTheme = {
+    ...defaultCssColorTheme,
+    ...config
+  };
+
+  return unsafeCSS(`
+  color: ${cssColorParamsToColorHex(theme.text)};
+  background-color: ${cssColorParamsToColorHex(theme.bg)};
+  `);
+}
 
 
 //#region -->> HELPERS <<--

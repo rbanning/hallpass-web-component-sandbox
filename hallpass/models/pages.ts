@@ -1,7 +1,8 @@
 import { html } from "lit"
 
 export type PageContent = {
-  heading: unknown
+  heading: unknown,
+  component?: unknown,
 }
 export type PageRepo = {
   [key: string]: PageContent

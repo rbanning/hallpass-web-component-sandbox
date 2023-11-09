@@ -1,5 +1,8 @@
-import { buildTypeface, getTypefaceSet, buildTypefaceDef, buildFontSize, buildFontSizeDef, getFontSizeProps, buildFontWeight, buildFontWeightDef, getFontWeight, buildTypographyTheme } from './typography';
-import { buildCssColor, getColorHex } from './colors';
+import { buildHeading } from './headings';
+import { buildMargin } from './margins';
+import { buildTypeface, buildTypefaceDef, buildFontSize, buildFontSizeDef, buildFontWeight, buildFontWeightDef, buildTypographyTheme } from './typography';
+import { buildCssColor, buildCssColorTheme } from './colors';
+import { buildPadding } from './paddings';
 
 export const globalTheme = {
   //--- typography --
@@ -12,15 +15,14 @@ export const globalTheme = {
 
   buildTypographyTheme,
 
-  //low level
-  getTypefaceSet,
-  getFontSizeProps,
-  getFontWeight,
-
-
   //--- color --
   buildCssColor,
-  
-  //low level
-  getColorHex,
+  buildCssColorTheme,
+
+  //--- margin / padding ---
+  buildMargin,
+  buildPadding,
+
+  //--- heading ---
+  buildHeading,
 }
